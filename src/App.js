@@ -4,18 +4,20 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
-import Posts from "./pages/Posts";
-import PostDetail from "./pages/PostDetail";
+import Posts from "./pages/Search";
+import NewPost from "./pages/PostDetail";
+import NewPost from "./pages/NewPost";
 
 function App() {
     return (
         <Routes>
             <Route excat path="/" element={<Home />} />
-            <Route excat path="/Home" element={<Home />} />
-            <Route excat path="/Dashboard" element={<Dashboard />} />
-            <Route excat path="/Profile" element={<Profile />} />
-            <Route excat path="/Posts" element={<Posts />} />
-            <Route excat path="/PostDetail" element={<PostDetail />} />
+            <Route excat path="/home" element={<Home />} />
+            <Route excat path="/dashboard" element={<Dashboard />} />
+            <Route excat path="/profile" element={<Profile />} />
+            <Route excat path="/posts" element={<Posts />} />
+            <Route excat path="/postdetail" element={<PostDetail />} />
+            <Route excat path="/newPost" element={<NewPost />} />
         </Routes>
     );
 }
