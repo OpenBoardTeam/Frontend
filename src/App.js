@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import PostDetail from "./pages/PostDetail";
 import NewPost from "./pages/NewPost";
+import LegalDocuments from "./pages/LegalDocuments";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <Route excat path="/search" element={<Search />} />
             <Route excat path="/postdetail" element={<PostDetail />} />
             <Route excat path="/newpost" element={<NewPost />} />
+            <Route excat path="/legaldocuments" element={<LegalDocuments />} />
         </Routes>
     );
 }
