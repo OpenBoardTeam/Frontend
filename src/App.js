@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
-import Posts from "./pages/Search";
+import Search from "./pages/Search";
 import PostDetail from "./pages/PostDetail";
 import NewPost from "./pages/NewPost";
 
@@ -15,9 +15,9 @@ function App() {
             <Route excat path="/home" element={<Home />} />
             <Route excat path="/dashboard" element={<Dashboard />} />
             <Route excat path="/profile" element={<Profile />} />
-            <Route excat path="/posts" element={<Posts />} />
+            <Route excat path="/search" element={<Search />} />
             <Route excat path="/postdetail" element={<PostDetail />} />
-            <Route excat path="/newPost" element={<NewPost />} />
+            <Route excat path="/newpost" element={<NewPost />} />
         </Routes>
     );
 }
