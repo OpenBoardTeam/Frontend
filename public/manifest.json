@@ -1,6 +1,6 @@
 {
-    "short_name": "GitBoard",
-    "name": "GitBoard, to find out open source project, wating for contributers",
+    "short_name": "Gitboard",
+    "name": "Web platform that helps you to search opensource projects you want",
     "icons": [
         {
             "src": "name.ico",
