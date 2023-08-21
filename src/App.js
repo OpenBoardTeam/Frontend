@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Posts from "./pages/Search";
-import NewPost from "./pages/PostDetail";
+import PostDetail from "./pages/PostDetail";
 import NewPost from "./pages/NewPost";
 
 function App() {
