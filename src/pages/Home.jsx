@@ -19,6 +19,7 @@ const TestMain = styled.div`
     background: url("/images/PcHome.png") center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 `;
 
 const Home = () => {
