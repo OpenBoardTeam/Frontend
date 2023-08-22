@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../style/theme";
-import Footer from "../componenets/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 
 const LegalDocuments = () => {
     return (

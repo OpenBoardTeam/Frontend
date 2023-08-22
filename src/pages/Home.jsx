@@ -1,7 +1,7 @@
 import React from "react";
 import theme from "../style/theme";
 import styled, { ThemeProvider } from "styled-components";
-import Footer from "../componenets/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 
 const StyledHome = styled.div`
     background-color: ${(props) => props.theme.primaryColor.background.black};
