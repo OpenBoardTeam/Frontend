@@ -3,7 +3,7 @@ import styled from "styled-components";
 const primaryColor = {
     background: {
         black: "#07030B",
-        textArea: "1C1920",
+        textArea: "#1C1920",
     },
     white: "#FFFFFF",
     black: "#141414",
