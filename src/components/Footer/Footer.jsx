@@ -66,9 +66,7 @@ const Footer = () => {
 
                     <LogoCopyright>
                         <Logo>GitBoard</Logo>
-                        <div className="copyright">
-                            <Licence />
-                        </div>
+                        <Licence />
                     </LogoCopyright>
                 </FooterContent>
             </StyledFooter>
