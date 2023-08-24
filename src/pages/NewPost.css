@@ -1,18 +1,19 @@
 .postheader {
-    height: 5vh;
+    height: 70px;
     background-color: yellow;
 }
 
 .postbody {
-    height: 80vh;
+    height: 1201px;
     background-color: black;
     color: white;
     display: flex;
     justify-content: center;
+    font-size: 14px;
 }
 
 .postfooter {
-    height: 15vh;
+    height: 251px;
     background-color: blue;
 }
 
@@ -30,8 +31,8 @@
 }
 
 .postimg {
-    width: 100px;
-    height: 100px;
+    width: 165px;
+    height: 165px;
     background-color: white;
     margin-top: 1vh;
 }
@@ -56,17 +57,17 @@
 
 .postname {
     width: 15vw;
-    height: 3vh;
+    height: 32px;
 }
 
 .postsimple {
     width: 30vw;
-    height: 3vh;
+    height: 32px;
 }
 
 .postdesc {
     width: 60vw;
-    height: 20vh;
+    height: 349px;
 }
 
 .postname, .postsimple, .postdesc {
@@ -87,12 +88,17 @@
 }
 
 .postlist, .postlistcheck {
-    padding: 2px 0.5vw;
     margin-right: 1vw;
-    
+    height: 35px;
     width: auto;
     border-radius: 30px;
     background-color: rgb(53, 52, 52);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 18px;
+    gap: 10px;
 }
 
 .postlist:hover, .postlistcheck, .h{
