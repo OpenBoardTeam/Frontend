@@ -1,0 +1,130 @@
+.profilebody {
+    display: flex;
+    justify-content: center;
+    height: 700px;
+}
+
+.profilemenuopen {
+    width: 110px;
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+
+.profilemenuclose {
+    width: 30px;
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+
+.profilemain {
+    flex: 1;
+}
+
+.profilemenubutton {
+    text-align: center;
+    width: auto;
+}
+
+.buttonmy {
+    margin-top: 30px;
+}
+
+.buttonmy, .buttonproject, .buttoninterest {
+    text-align: center;
+    padding: 10px;
+}
+
+.mybuttonclick {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(20, 20, 20);
+}
+
+.buttonmyclick {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(20, 20, 20);
+    margin-top: 30px;
+}
+
+.profilemenubutton:hover, .buttonmy:hover, .buttonproject:hover, .buttoninterest:hover {
+    cursor: pointer;
+}
+
+
+/* ProfileMy */
+.mybody {
+    display: flex;
+    justify-content: center;
+}
+
+.myleft {
+    text-align: center;
+    width: 300px;
+}
+
+.myright {
+    flex: 2;
+}
+
+.myimg {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-color: green;
+    margin: 50px;
+}
+
+.myname {
+    font-size: 30px;
+    width: auto;
+}
+
+.myid {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: lightgray;
+    width: auto;
+}
+
+.myedit {
+    display: inline-block;
+    font-size: 20px;
+    width: auto;
+    margin-top: 10px;
+}
+
+.mywith {
+    float: right;
+    color: red;
+    font-size: 14px;
+}
+
+.myprojecttitle {
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.myprojectlist {
+    border: 2px solid black;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.myintro {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.mycontent {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-indent: 5px;
+    margin-top: 10px;
+}
+
+.myedit:hover, .mywith:hover {
+    cursor: pointer;
+}
