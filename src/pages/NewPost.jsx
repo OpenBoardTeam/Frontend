@@ -1,47 +1,25 @@
 import React from "react";
 import "./NewPost.css"
 import { useState } from "react";
-import PlusSystem from "./PlusSystem";
+import SetList from "./SetList";
+import SetLink from "./SetLink";
 
 const Posts = () => {
-    const [catelist, setCatelist] = useState(["Education", "Environment", "Life", "Security"])
-    const [framelist, setFramelist] = useState(["React", "Angular", "Spring", "AndroidStudio", "Unity", "Vanila", "Etc"])
-    const [cate, setCate] = useState([0, 0, 0, 0])
-    const [frame, setFrame] = useState([0, 0, 0, 0, 0, 0, 0])
+    const [cate, setCate] = useState(["C", "B", "asdas", "dasddua"])
+    const [frame, setFrame] = useState([])
+    const [lang, setLang] = useState([])
+    const [caten, setCaten] = useState([])
+    const [framen, setFramen] = useState([])
+    const [langn, setLangn] = useState([])
     const [plus, setPlus] = useState(0)
-
-    const cateclick = ( num ) => {
-        const temp = [...cate]
-        if (temp[num] === 0) {
-            temp[num] = 1
-        }
-        else {
-            temp[num] = 0
-        }
-        setCate(temp)
-    }
-
-    const frameclick = ( num ) => {
-        const temp = [...frame]
-        if (temp[num] === 0) {
-            temp[num] = 1
-        }
-        else {
-            temp[num] = 0
-        }
-        setFrame(temp)
-    }
-
-    const cateplusclick = () => {
-        setPlus(1)
-    }
-
-    const frameplusclick = () => {
-        setPlus(2)
-    }
+    const [link, setLink] = useState("")
+    const [linkkey, setLinkkey] = useState(0)
 
     return (
         <>
+            {(linkkey === 0) && (
+                <SetLink setLink={setLink} setLinkkey={setLinkkey}/>
+            )}
             <div className="postheader">
 
             </div>   
@@ -64,24 +42,36 @@ const Posts = () => {
                     <textarea className="postdesc"></textarea>
                     <div className="postcate">Categories</div>
                     <div className="postcatelist">
-                        {catelist.map((x, idx) => (cate[idx] === 1) ? (<div onClick={() => cateclick(idx)} className="postlistcheck">{x}</div>) : (<div onClick={() => cateclick(idx)} className="postlist">{x}</div>))}
-                        <div onClick={() => cateplusclick()} className="postlist">+</div>
+                        {cate.map((x) => (<div className="postlist">{x}</div>))}
+                        {caten.map((x) => (<div className="postlistn">{x}</div>))}
+                        <div onClick={() => setPlus(1)} className="postplus">+</div>
                     </div>
                     <div className="postframe">Framework</div>
                     <div className="postframelist">
-                        {framelist.map((x, idx) => (frame[idx] === 1) ? (<div onClick={() => frameclick(idx)} className="postlistcheck">{x}</div>) : (<div onClick={() => frameclick(idx)} className="postlist">{x}</div>))}
-                        <div onClick={() => frameplusclick()} className="postlist">+</div>
+                        {frame.map((x) => (<div className="postlist">{x}</div>))}
+                        {framen.map((x) => (<div className="postlistn">{x}</div>))}
+                        <div onClick={() => setPlus(2)} className="postplus">+</div>
                     </div>
+                    <div className="postframe">Language</div>
+                    <div className="postframelist">
+                        {lang.map((x) => (<div className="postlist">{x}</div>))}
+                        {langn.map((x) => (<div className="postlistn">{x}</div>))}
+                        <div onClick={() => setPlus(3)} className="postplus">+</div>
+                    </div>
+                    <div className="postsubmit">Submit</div>
                 </div>
             </div>
             <div className="postfooter">
 
             </div>
             {plus === 1 && (
-                <PlusSystem setPlus={setPlus} list={catelist} value={cate} setList={setCatelist} setValue={setCate}/>
+                <SetList cate={cate} setCate={setCate} caten={caten} setCaten={setCaten} setPlus={setPlus} title="category"/>
             )}
             {plus === 2 && (
-                <PlusSystem setPlus={setPlus} list={framelist} value={frame} setList={setFramelist} setValue={setFrame}/>
+                <SetList cate={frame} setCate={setFrame} caten={framen} setCaten={setFramen} setPlus={setPlus} title="framework"/>
+            )}
+            {plus === 3 && (
+                <SetList cate={lang} setCate={setLang} caten={langn} setCaten={setLangn} setPlus={setPlus} title="language"/>
             )}
         </>
     );
