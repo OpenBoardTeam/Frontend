@@ -23,9 +23,10 @@ const TestMain = styled.div`
 `;
 
 const Home = () => {
+    const isLoggedIn = true;
     return (
         <ThemeProvider theme={theme}>
-            <Header></Header>
+            <Header isLoggedIn={isLoggedIn} />
             <StyledHome>
                 <TestMain></TestMain>
                 <Footer></Footer>

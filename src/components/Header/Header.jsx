@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../../style/theme";
 import NavBar from "./NavBar";
+import AccountContainer from "./AccountContainer";
+import ToggleMenu from "./ToggleMenu";
 
 const StyledHeader = styled.header`
     display: flex;
@@ -19,9 +21,10 @@ const StyledHeader = styled.header`
 const LogoContainer = styled.div`
     font-size: 40px;
     font-weight: 600; //Bold
-    display: inline-block;
-    margin-top: 11px;
-    margin-left: 10vw;
+    display: flex;
+    margin-left: 5vw;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
 `;
 
@@ -52,9 +55,11 @@ const Logo = () => {
     );
 };
 
-const Header = () => {
-    //If scroll change background color
+const Header = (props) => {
+    //Scroll에 따른 background color change
     const [isScrolled, setIsScrolled] = useState(false);
+    //Account toggle menu
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleScroll = () => {
         if (window.scrollY > 60) {
@@ -66,9 +71,12 @@ const Header = () => {
 
     useEffect(() => {
         handleScroll();
-        // adding the event when scroll change background
         window.addEventListener("scroll", handleScroll);
     });
+
+    const openMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -77,7 +85,13 @@ const Header = () => {
 
                 <NavBar />
 
-                {/*Right*/}
+                <AccountContainer
+                    isLoggedIn={props.isLoggedIn}
+                    isScrolled={isScrolled}
+                    isMenuOpen={isMenuOpen}
+                    menuOpenHandler={openMenu}
+                />
+                {isMenuOpen && <ToggleMenu />}
             </StyledHeader>
         </ThemeProvider>
     );

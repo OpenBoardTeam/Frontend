@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import theme from "../../style/theme";
 
-const StyledNavbar = styled.nav`
-    display: inline-block;
-    margin-top: 21px;
+const StyledNavbar = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 5vw;
-    height: 50px;
 `;
 
 const StyledUnorderedList = styled.li`
     font-size: 24px;
     font-weight: 300; //Regular
     list-style: none;
-    display: inline-block;
 `;
 
 const StyledList = styled.li`
