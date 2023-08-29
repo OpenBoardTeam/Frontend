@@ -1,38 +1,56 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../../style/theme";
+import NavBar from "./NavBar";
 
 const StyledHeader = styled.header`
+    display: flex;
     width: 100%;
     height: 70px;
     position: fixed;
     z-index: 100;
     backdrop-filter: blur(5px);
     transition: background-color 0.3s ease-in-out;
+    color: white;
     background-color: ${(props) => props.theme.primaryColor.background.black};
     background-color: ${({ isScrolled }) => !isScrolled && "transparent"};
 `;
 
-const Inner = styled.div`
-    color: white;
-`;
-
-const Logo = styled.div`
+const LogoContainer = styled.div`
     font-size: 40px;
-    font-weight: 600;
-    padding-bottom: 50px;
-    float: left;
-    margin-left: 10vw;
+    font-weight: 600; //Bold
+    display: inline-block;
     margin-top: 11px;
+    margin-left: 10vw;
+    cursor: pointer;
 `;
 
-const NavBar = styled.nav``;
+const StyledLogo = styled.a`
+    text-decoration: none;
 
-const SignBtn = styled.button`
-    height: 40px;
-    border-radius: 30;
-    padding: 12px 8px 12px 8px;
+    color: white;
+
+    &:visited {
+        color: white;
+    }
+
+    &:hover {
+        color: white;
+        cursor: pointer;
+    }
+
+    &:active {
+        color: white;
+    }
 `;
+
+const Logo = () => {
+    return (
+        <LogoContainer>
+            <StyledLogo href="/">GitBoard</StyledLogo>
+        </LogoContainer>
+    );
+};
 
 const Header = () => {
     //If scroll change background color
@@ -55,9 +73,11 @@ const Header = () => {
     return (
         <ThemeProvider theme={theme}>
             <StyledHeader isScrolled={isScrolled}>
-                <Inner>
-                    <Logo>GitBoard</Logo>
-                </Inner>
+                <Logo>GitBoard</Logo>
+
+                <NavBar />
+
+                {/*Right*/}
             </StyledHeader>
         </ThemeProvider>
     );
