@@ -4,11 +4,12 @@ import { useState } from "react"
 const SetCate = ( props ) => {
     const [list, setList] = useState(["React.js", "React.ts", "sad", "asasd", ".Tasdasd"])
     const [want, setWant] = useState(props.cate)
-    const [slist, setSlist] = useState([])
+    const [slist, setSlist] = useState([""])
     const [listn, setListn] = useState(["Unity", "Unreal Engine"])
     const [wantn, setWantn] = useState(props.caten)
-    const [slistn, setSlistn] = useState([])
+    const [slistn, setSlistn] = useState([""])
     const [skey, setSkey] = useState(0)
+    const [sword, setSword] = useState("")
 
     const add = ( value ) => {
         if(want.filter((x) => x === value).length === 0 ) {
@@ -37,8 +38,10 @@ const SetCate = ( props ) => {
     const search = ( value ) => {
         if (value === "")
             setSkey(0)
-        else
+        else {
             setSkey(1)
+            setSword(value)
+        }
 
         let temp = []
         list.filter((x) => {
@@ -56,8 +59,8 @@ const SetCate = ( props ) => {
     }
 
     const listadd = (e) => {
-        if(e.key === "Enter" && slist !== null && slistn !== null && skey === 1) {
-            const temp = [...listn, e.target.value]
+        if((e.key === "Enter" || e === "Enter") && slist.length === 0 && slistn.length === 0 && skey === 1) {
+            const temp = [...listn, sword]
             setListn(temp)
         }
     }
@@ -88,10 +91,19 @@ const SetCate = ( props ) => {
                         <img src="sd" className="setcateimg"></img>
                         <hr></hr>
                         <div className="setcatelists">
-                            {skey === 0 && list.map((x) => (<div onClick={(e) => add(e.target.textContent)} className="setcatelist">{x}</div>))}
-                            {skey === 0 && listn.map((x) => (<div onClick={(e) => addn(e.target.textContent)} className="setcatelistn">{x}</div>))}
-                            {skey === 1 && slist.map((x) => (<div onClick={(e) => add(e.target.textContent)} className="setcatelist">{x}</div>))}
-                            {skey === 1 && slistn.map((x) => (<div onClick={(e) => addn(e.target.textContent)} className="setcatelistn">{x}</div>))}
+                            {skey === 0 && list.map((x) => (<div onClick={(e) => add(e.target.textContent)} className="setcatelist">#{x}</div>))}
+                            {skey === 0 && listn.map((x) => (<div onClick={(e) => addn(e.target.textContent)} className="setcatelistn">#{x}</div>))}
+                            {skey === 1 && slist.map((x) => (<div onClick={(e) => add(e.target.textContent)} className="setcatelist">#{x}</div>))}
+                            {skey === 1 && slistn.map((x) => (<div onClick={(e) => addn(e.target.textContent)} className="setcatelistn">#{x}</div>))}
+                            {(slist.length === 0 && slistn.length === 0) && (
+                                <div>
+                                    <div className="setcatecreatetext">'#{sword}' is not exist.</div>
+                                    <div className="setcatecreategroup">
+                                        <div onClick={() => listadd("Enter")} className="setcatecreateline">Click here</div>
+                                        <div className="setcatecreate">&nbsp;to create new hashtag.</div>
+                                    </div>
+                                </div>        
+                            )}
                         </div>
                     </div>
                 </div>

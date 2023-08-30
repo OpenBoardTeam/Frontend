@@ -21,7 +21,6 @@ const Posts = () => {
                 <SetLink setLink={setLink} setLinkkey={setLinkkey}/>
             )}
             <div className="postheader">
-
             </div>   
             <div className="postbody">
                 <div className="postmain">
@@ -42,20 +41,20 @@ const Posts = () => {
                     <textarea className="postdesc"></textarea>
                     <div className="postcate">Categories</div>
                     <div className="postcatelist">
-                        {cate.map((x) => (<div className="postlist">{x}</div>))}
-                        {caten.map((x) => (<div className="postlistn">{x}</div>))}
+                        {cate.map((x) => (<div className="postlist">#{x}</div>))}
+                        {caten.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(1)} className="postplus">+</div>
                     </div>
                     <div className="postframe">Framework</div>
                     <div className="postframelist">
-                        {frame.map((x) => (<div className="postlist">{x}</div>))}
-                        {framen.map((x) => (<div className="postlistn">{x}</div>))}
+                        {frame.map((x) => (<div className="postlist">#{x}</div>))}
+                        {framen.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(2)} className="postplus">+</div>
                     </div>
                     <div className="postframe">Language</div>
                     <div className="postframelist">
-                        {lang.map((x) => (<div className="postlist">{x}</div>))}
-                        {langn.map((x) => (<div className="postlistn">{x}</div>))}
+                        {lang.map((x) => (<div className="postlist">#{x}</div>))}
+                        {langn.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(3)} className="postplus">+</div>
                     </div>
                     <div className="postsubmit">Submit</div>
