@@ -1,108 +1,69 @@
 .profilebody {
-    display: flex;
-    justify-content: center;
     height: 700px;
-}
-
-.profilemenuopen {
-    width: 110px;
-    background-color: rgb(49, 49, 49);
+    width: 100%;
+    background-color: #525252;
     color: white;
 }
 
-.profilemenuclose {
-    width: 30px;
-    background-color: rgb(49, 49, 49);
-    color: white;
-}
-
-.profilemain {
-    flex: 1;
-}
-
-.profilemenubutton {
-    text-align: center;
-    width: auto;
-}
-
-.buttonmy {
-    margin-top: 30px;
-}
-
-.buttonmy, .buttonproject, .buttoninterest {
-    text-align: center;
-    padding: 10px;
-}
-
-.mybuttonclick {
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(20, 20, 20);
-}
-
-.buttonmyclick {
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(20, 20, 20);
-    margin-top: 30px;
-}
-
-.profilemenubutton:hover, .buttonmy:hover, .buttonproject:hover, .buttoninterest:hover {
-    cursor: pointer;
-}
-
-
-/* ProfileMy */
 .mybody {
     display: flex;
     justify-content: center;
 }
 
 .myleft {
-    text-align: center;
-    width: 300px;
+    text-align: left;
+    width: 500px;
 }
 
 .myright {
     flex: 2;
 }
 
+.myedit {
+    font-size: 14px;
+    width: auto;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
 .myimg {
     width: 200px;
     height: 200px;
-    border-radius: 100%;
     background-color: green;
-    margin: 50px;
+    margin-left: 150px;
 }
 
 .myname {
-    font-size: 30px;
+    font-size: 32px;
     width: auto;
+    margin-left: 150px;
+    font-weight: bolder;
 }
 
 .myid {
-    display: flex;
-    justify-content: center;
-    font-size: 25px;
+    font-size: 32px;
     color: lightgray;
     width: auto;
+    margin-left: 150px;
+    font-weight: bolder;
 }
 
-.myedit {
-    display: inline-block;
-    font-size: 20px;
+.mybookmark {
+    font-size: 32px;
     width: auto;
-    margin-top: 10px;
+    margin-left: 150px;
+    margin-top: 20px;
 }
 
 .mywith {
     float: right;
-    color: red;
-    font-size: 14px;
+    font-size: 32px;
+    margin-right: 150px;
+    margin-top: 150px;
 }
 
 .myprojecttitle {
-    font-size: 30px;
+    font-size: 32px;
     margin-top: 50px;
 }
 
@@ -111,10 +72,11 @@
     height: 200px;
     border-radius: 5px;
     margin-top: 10px;
+    width: 70%;
 }
 
-.myintro {
-    font-size: 30px;
+.myintro, .mybadge {
+    font-size: 32px;
     margin-top: 20px;
 }
 
@@ -123,6 +85,7 @@
     border-radius: 5px;
     text-indent: 5px;
     margin-top: 10px;
+    width: 70%;
 }
 
 .myedit:hover, .mywith:hover {
