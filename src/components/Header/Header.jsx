@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../../style/theme";
 import NavBar from "./NavBar";
-import AccountContainer from "./AccountContainer";
-import ToggleMenu from "./ToggleMenu";
+import AccountContainer from "./AccountContainer/AccountContainer";
 
 const StyledHeader = styled.header`
     display: flex;
@@ -61,21 +60,42 @@ const Header = (props) => {
     //Account toggle menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const handleScroll = () => {
-        if (window.scrollY > 60) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
-    };
+    let menuRef = useRef();
 
     useEffect(() => {
-        handleScroll();
-        window.addEventListener("scroll", handleScroll);
-    });
+        // Register scroll handler
+        const scrollHandler = () => {
+            if (window.scrollY > 60) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        // Register menu handler
+        const menuHandler = (e) => {
+            if (!menuRef.current.contains(e.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        // document, window에 따른 handler 실행
+        document.addEventListener("mousedown", menuHandler);
+        window.addEventListener("scroll", scrollHandler);
+
+        // Unmout
+        return () => {
+            document.removeEventListener("mousedown", menuHandler);
+            window.removeEventListener("scroll", scrollHandler);
+        };
+    }, []);
 
     const openMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
+        if (!isMenuOpen) {
+            setIsMenuOpen(true);
+        } else {
+            setIsMenuOpen(false);
+        }
     };
 
     return (
@@ -85,13 +105,16 @@ const Header = (props) => {
 
                 <NavBar />
 
-                <AccountContainer
-                    isLoggedIn={props.isLoggedIn}
-                    isScrolled={isScrolled}
-                    isMenuOpen={isMenuOpen}
-                    menuOpenHandler={openMenu}
-                />
-                {isMenuOpen && <ToggleMenu />}
+                {
+                    /*Sign in, Account toggle menu */
+                    <AccountContainer
+                        isLoggedIn={props.isLoggedIn}
+                        isScrolled={isScrolled}
+                        isMenuOpen={isMenuOpen}
+                        menuOpenHandler={openMenu}
+                        ref={menuRef}
+                    />
+                }
             </StyledHeader>
         </ThemeProvider>
     );

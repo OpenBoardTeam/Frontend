@@ -22,6 +22,7 @@ const StyledList = styled.li`
 const StyledLink = styled.a`
     background-color: transparent;
     text-decoration: none;
+    transition: color 0.3s;
 
     color: white;
 
@@ -32,6 +33,7 @@ const StyledLink = styled.a`
     &:hover {
         color: #bc43be;
         cursor: pointer;
+        transition: color 0.1s;
     }
 
     &:active {

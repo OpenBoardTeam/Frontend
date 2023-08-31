@@ -1,12 +1,10 @@
 import React from "react";
 import { styled } from "styled-components";
-import theme from "../../style/theme";
+import theme from "../../../style/theme";
 
 const MyAccountName = "yoonki1207";
 
-const StyledMyAccount = styled.p`
-    cursor: pointer;
-`;
+const StyledMyAccount = styled.p``;
 
 //Account name
 const MyAccount = (props) => {
