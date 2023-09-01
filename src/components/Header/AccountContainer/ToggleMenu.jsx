@@ -7,10 +7,10 @@ const StyledToggleMenu = styled.div`
     z-index: 80;
     position: fixed;
 
-    top: 35px;
+    top: 50px;
     right: 5vw;
 
-    padding: 20px 30px 20px 30px;
+    padding: 10px 30px 20px 30px;
 
     visibility: visible;
 

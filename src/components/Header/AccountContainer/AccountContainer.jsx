@@ -25,10 +25,19 @@ const StyledAccountContainer = styled.div`
 
     background-color: black;
 
-    transition: border 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 30px;
     border: 0.5px solid transparent;
     border-color: ${({ isScrolled }) => isScrolled && "white"};
+
+    /* border-left: black 1px solid;
+    border-right: black 1px solid; */
+    border-bottom: ${({ isToggled, isScrolled }) =>
+        isToggled && isScrolled
+            ? "black 1px solid"
+            : !isScrolled
+            ? "transparent"
+            : "0.5px solid white"};
 
     &:hover {
         background-color: #1d1d1d;
@@ -41,8 +50,6 @@ const StyledAccountContainer = styled.div`
 
 const AccountContainer = forwardRef((props, ref) => {
     const onToggleBtnClick = (e) => {
-        // 클릭 이벤트 전파 방지
-        e.stopPropagation();
         //Github Auth link
         !props.isLoggedIn && window.open("https://github.com", "_blank");
         //Open toggle menu
@@ -50,14 +57,14 @@ const AccountContainer = forwardRef((props, ref) => {
     };
 
     return (
-        <Wrapper ref={ref}>
+        <Wrapper>
             <StyledAccountContainer
+                ref={ref}
                 isScrolled={props.isScrolled}
                 isToggled={props.isMenuOpen}
                 onClick={onToggleBtnClick}
             >
                 <GithubIcon />
-
                 {!props.isLoggedIn && <>Sign in with Github</>}
                 {props.isLoggedIn && (
                     <>
