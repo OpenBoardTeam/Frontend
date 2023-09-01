@@ -3,9 +3,10 @@ import "./NewPost.css"
 import { useState } from "react";
 import SetList from "./SetList";
 import SetLink from "./SetLink";
+import axios from "axios";
 
 const Posts = () => {
-    const [cate, setCate] = useState(["C", "B", "asdas", "dasddua"])
+    const [cate, setCate] = useState(["C", "Spring", "React"])
     const [frame, setFrame] = useState([])
     const [lang, setLang] = useState([])
     const [caten, setCaten] = useState([])
@@ -14,6 +15,29 @@ const Posts = () => {
     const [plus, setPlus] = useState(0)
     const [link, setLink] = useState("")
     const [linkkey, setLinkkey] = useState(0)
+
+    const [name, setName] = useState("")
+    const [sdes, setSdes] = useState("")
+    const [des, setDes] = useState("")
+
+    const submit = () => {
+        console.log(cate+caten)
+        console.log(name)
+        console.log(sdes)
+        console.log(des)
+        console.log(link)
+
+        axios.post('/project',
+            {
+                "categories": [...cate, ...caten],
+                "description": des,
+                "gitUrl": link,
+                "name": name,
+                "simple_description": sdes,
+                "userId": 7
+            }
+        );
+    }
 
     return (
         <>
@@ -29,16 +53,16 @@ const Posts = () => {
                         <div className="postimg"></div>
                         <div className="posttitle">
                             <div>Project name</div>
-                            <input className="postname"></input>
+                            <input className="postname" onChange={(e) => setName(e.target.value)}></input>
                             <div className="des">Single description</div>
-                            <input className="postsimple"></input>
+                            <input className="postsimple" onChange={(e) => setSdes(e.target.value)}></input>
                         </div>
                     </div>
                     <div className="postmid">
                         <div className="postmidtitle">Description.md</div>
                         <div className="h">Load README.md From Github</div>
                     </div>
-                    <textarea className="postdesc"></textarea>
+                    <textarea className="postdesc" onChange={(e) => setDes(e.target.value)}></textarea>
                     <div className="postcate">Categories</div>
                     <div className="postcatelist">
                         {cate.map((x) => (<div className="postlist">#{x}</div>))}
@@ -57,7 +81,7 @@ const Posts = () => {
                         {langn.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(3)} className="postplus">+</div>
                     </div>
-                    <div className="postsubmit">Submit</div>
+                    <div onClick={()=> submit()} className="postsubmit">Submit</div>
                 </div>
             </div>
             <div className="postfooter">
