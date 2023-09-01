@@ -65,11 +65,7 @@ const Header = (props) => {
     useEffect(() => {
         // Register scroll handler
         const scrollHandler = () => {
-            if (window.scrollY > 60) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            setIsScrolled(window.scrollY > 60);
         };
 
         // Register menu handler
