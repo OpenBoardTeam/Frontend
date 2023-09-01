@@ -87,11 +87,7 @@ const Header = (props) => {
     }, []);
 
     const openMenu = () => {
-        if (!isMenuOpen) {
-            setIsMenuOpen(true);
-        } else {
-            setIsMenuOpen(false);
-        }
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
