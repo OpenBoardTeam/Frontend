@@ -15,8 +15,8 @@ const Licence = () => {
     return (
         <>
             <p>
-                Copyright &copy; {new Date().getFullYear()} GitBoard. All rights
-                reserved. Licensed under the{" "}
+                Copyright &copy; {new Date().getFullYear()} GitBoard. Licensed
+                under the{" "}
                 <LicenceLink href={url} target="_blank">
                     {name}
                 </LicenceLink>

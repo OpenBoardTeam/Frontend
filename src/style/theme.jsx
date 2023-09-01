@@ -16,6 +16,7 @@ const primaryColor = {
 export const StyledLink = styled.a`
     background-color: transparent;
     text-decoration: none;
+    transition: color 0.3s;
 
     color: white;
 
@@ -26,6 +27,7 @@ export const StyledLink = styled.a`
     &:hover {
         color: #bc43be;
         text-decoration: underline;
+        transition: color 0.1s;
     }
 
     &:active {
