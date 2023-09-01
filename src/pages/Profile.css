@@ -1,0 +1,93 @@
+.profilebody {
+    height: 700px;
+    width: 100%;
+    background-color: #525252;
+    color: white;
+}
+
+.mybody {
+    display: flex;
+    justify-content: center;
+}
+
+.myleft {
+    text-align: left;
+    width: 500px;
+}
+
+.myright {
+    flex: 2;
+}
+
+.myedit {
+    font-size: 14px;
+    width: auto;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+.myimg {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin-left: 150px;
+}
+
+.myname {
+    font-size: 32px;
+    width: auto;
+    margin-left: 150px;
+    font-weight: bolder;
+}
+
+.myid {
+    font-size: 32px;
+    color: lightgray;
+    width: auto;
+    margin-left: 150px;
+    font-weight: bolder;
+}
+
+.mybookmark {
+    font-size: 32px;
+    width: auto;
+    margin-left: 150px;
+    margin-top: 20px;
+}
+
+.mywith {
+    float: right;
+    font-size: 32px;
+    margin-right: 150px;
+    margin-top: 150px;
+}
+
+.myprojecttitle {
+    font-size: 32px;
+    margin-top: 50px;
+}
+
+.myprojectlist {
+    border: 2px solid black;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 70%;
+}
+
+.myintro, .mybadge {
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.mycontent {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-indent: 5px;
+    margin-top: 10px;
+    width: 70%;
+}
+
+.myedit:hover, .mywith:hover {
+    cursor: pointer;
+}
