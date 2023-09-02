@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile";
+import Profile from "./components/Profile/Profile";
 import Search from "./pages/Search";
 import PostDetail from "./pages/PostDetail";
 import NewPost from "./pages/NewPost";
