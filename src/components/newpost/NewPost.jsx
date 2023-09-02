@@ -4,9 +4,11 @@ import { useState } from "react";
 import SetList from "./SetList";
 import SetLink from "./SetLink";
 import axios from "axios";
+import Header from "./../Header/Header"
+import Footer from "./../Footer/Footer"
 
 const Posts = () => {
-    const [cate, setCate] = useState(["C", "Spring", "React"])
+    const [cate, setCate] = useState([])
     const [frame, setFrame] = useState([])
     const [lang, setLang] = useState([])
     const [caten, setCaten] = useState([])
@@ -21,11 +23,6 @@ const Posts = () => {
     const [des, setDes] = useState("")
 
     const submit = () => {
-        console.log(cate+caten)
-        console.log(name)
-        console.log(sdes)
-        console.log(des)
-        console.log(link)
 
         axios.post('/project',
             {
@@ -45,6 +42,7 @@ const Posts = () => {
                 <SetLink setLink={setLink} setLinkkey={setLinkkey}/>
             )}
             <div className="postheader">
+                <Header/>
             </div>   
             <div className="postbody">
                 <div className="postmain">
@@ -85,7 +83,7 @@ const Posts = () => {
                 </div>
             </div>
             <div className="postfooter">
-
+                <Footer/>
             </div>
             {plus === 1 && (
                 <SetList cate={cate} setCate={setCate} caten={caten} setCaten={setCaten} setPlus={setPlus} title="category"/>

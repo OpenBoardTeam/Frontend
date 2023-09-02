@@ -1,6 +1,6 @@
 .postheader {
     height: 70px;
-    background-color: yellow;
+    background-color: black;
 }
 
 .postbody {
@@ -14,7 +14,6 @@
 
 .postfooter {
     height: 251px;
-    background-color: blue;
 }
 
 .postmain {

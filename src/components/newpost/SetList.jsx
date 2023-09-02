@@ -1,15 +1,23 @@
 import React from "react";
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import axios from "axios";
 
 const SetCate = ( props ) => {
-    const [list, setList] = useState(["React.js", "React.ts", "sad", "asasd", ".Tasdasd"])
+    const [list, setList] = useState([])
     const [want, setWant] = useState(props.cate)
     const [slist, setSlist] = useState([""])
-    const [listn, setListn] = useState(["Unity", "Unreal Engine"])
+    const [listn, setListn] = useState([])
     const [wantn, setWantn] = useState(props.caten)
     const [slistn, setSlistn] = useState([""])
     const [skey, setSkey] = useState(0)
     const [sword, setSword] = useState("")
+
+    useEffect(() => {
+        axios.get('category')
+        .then(function (response) {
+            console.log(response.data)
+        })
+    }, [])
 
     const add = ( value ) => {
         if(want.filter((x) => x === value).length === 0 ) {
