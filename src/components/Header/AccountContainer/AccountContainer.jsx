@@ -51,7 +51,8 @@ const StyledAccountContainer = styled.div`
 const AccountContainer = forwardRef((props, ref) => {
     const onToggleBtnClick = (e) => {
         //Github Auth link
-        !props.isLoggedIn && window.open("https://github.com", "_blank");
+        !props.isLoggedIn &&
+            window.open("http://13.125.46.32:9000/login", "_self");
         //Open toggle menu
         props.isLoggedIn && props.menuOpenHandler();
     };
