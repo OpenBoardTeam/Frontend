@@ -9,11 +9,15 @@ import Footer from "./../Footer/Footer"
 
 const Posts = () => {
     const [cate, setCate] = useState([])
-    const [frame, setFrame] = useState([])
+    const [social, setSocial] = useState([])
     const [lang, setLang] = useState([])
+    const [frame, setFrame] = useState([])
+    const [infra, setInfra] = useState([])
     const [caten, setCaten] = useState([])
-    const [framen, setFramen] = useState([])
+    const [socialn, setSocialn] = useState([])
     const [langn, setLangn] = useState([])
+    const [framen, setFramen] = useState([])
+    const [infran, setInfran] = useState([])
     const [plus, setPlus] = useState(0)
     const [link, setLink] = useState("")
     const [linkkey, setLinkkey] = useState(0)
@@ -23,17 +27,21 @@ const Posts = () => {
     const [des, setDes] = useState("")
 
     const submit = () => {
-
-        axios.post('/project',
-            {
-                "categories": [...cate, ...caten],
-                "description": des,
-                "gitUrl": link,
-                "name": name,
-                "simple_description": sdes,
-                "userId": 7
-            }
-        );
+        if(link !== "" && name !== "" && sdes !== "" && des !== "") {
+            axios.post('/project',
+                {
+                    "categories": [...cate, ...caten, ...social, ...socialn, ...lang, ...langn, ...frame, ...framen, ...infra, ...infran],
+                    "description": des,
+                    "gitUrl": link,
+                    "name": name,
+                    "simple_description": sdes,
+                    "userId": 1
+                }
+            );  
+        }
+        else {
+            alert('빈칸을 채워주세요')
+        }
     }
 
     return (
@@ -61,16 +69,16 @@ const Posts = () => {
                         <div className="h">Load README.md From Github</div>
                     </div>
                     <textarea className="postdesc" onChange={(e) => setDes(e.target.value)}></textarea>
-                    <div className="postcate">Categories</div>
+                    <div className="postcate">Group</div>
                     <div className="postcatelist">
                         {cate.map((x) => (<div className="postlist">#{x}</div>))}
                         {caten.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(1)} className="postplus">+</div>
                     </div>
-                    <div className="postframe">Framework</div>
+                    <div className="postframe">Social</div>
                     <div className="postframelist">
-                        {frame.map((x) => (<div className="postlist">#{x}</div>))}
-                        {framen.map((x) => (<div className="postlistn">#{x}</div>))}
+                        {social.map((x) => (<div className="postlist">#{x}</div>))}
+                        {socialn.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(2)} className="postplus">+</div>
                     </div>
                     <div className="postframe">Language</div>
@@ -79,6 +87,18 @@ const Posts = () => {
                         {langn.map((x) => (<div className="postlistn">#{x}</div>))}
                         <div onClick={() => setPlus(3)} className="postplus">+</div>
                     </div>
+                    <div className="postframe">Framework</div>
+                    <div className="postframelist">
+                        {frame.map((x) => (<div className="postlist">#{x}</div>))}
+                        {framen.map((x) => (<div className="postlistn">#{x}</div>))}
+                        <div onClick={() => setPlus(4)} className="postplus">+</div>
+                    </div>
+                    <div className="postframe">Infra</div>
+                    <div className="postframelist">
+                        {infra.map((x) => (<div className="postlist">#{x}</div>))}
+                        {infran.map((x) => (<div className="postlistn">#{x}</div>))}
+                        <div onClick={() => setPlus(5)} className="postplus">+</div>
+                    </div>
                     <div onClick={()=> submit()} className="postsubmit">Submit</div>
                 </div>
             </div>
@@ -86,13 +106,19 @@ const Posts = () => {
                 <Footer/>
             </div>
             {plus === 1 && (
-                <SetList cate={cate} setCate={setCate} caten={caten} setCaten={setCaten} setPlus={setPlus} title="category"/>
+                <SetList cate={cate} setCate={setCate} caten={caten} setCaten={setCaten} plus={plus} setPlus={setPlus} title="group"/>
             )}
             {plus === 2 && (
-                <SetList cate={frame} setCate={setFrame} caten={framen} setCaten={setFramen} setPlus={setPlus} title="framework"/>
+                <SetList cate={social} setCate={setSocial} caten={socialn} setCaten={setSocialn} plus={plus} setPlus={setPlus} title="social"/>
             )}
             {plus === 3 && (
-                <SetList cate={lang} setCate={setLang} caten={langn} setCaten={setLangn} setPlus={setPlus} title="language"/>
+                <SetList cate={lang} setCate={setLang} caten={langn} setCaten={setLangn} plus={plus} setPlus={setPlus} title="language"/>
+            )}
+            {plus === 4 && (
+                <SetList cate={frame} setCate={setFrame} caten={framen} setCaten={setFramen} plus={plus} setPlus={setPlus} title="framework"/>
+            )}
+            {plus === 5 && (
+                <SetList cate={infra} setCate={setInfra} caten={infran} setCaten={setInfran} plus={plus} setPlus={setPlus} title="infra"/>
             )}
         </>
     );
