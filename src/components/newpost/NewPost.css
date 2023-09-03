@@ -1,10 +1,10 @@
 .postheader {
     height: 70px;
-    background-color: yellow;
+    background-color: black;
 }
 
 .postbody {
-    height: 1201px;
+    height: 1300px;
     background-color: black;
     color: white;
     display: flex;
@@ -14,7 +14,6 @@
 
 .postfooter {
     height: 251px;
-    background-color: blue;
 }
 
 .postmain {
@@ -154,7 +153,7 @@
 .setlinkback {
     position: absolute;
     width: 100vw;
-    height: 1201px;
+    height: 1300px;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.04);
     top: 71px;
@@ -185,7 +184,7 @@
 .setcateback {
     position: absolute;
     width: 100vw;
-    height: 1201px;
+    height: 1300px;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.04);
     top: 71px;

@@ -1,15 +1,25 @@
 import React from "react";
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import axios from "axios";
 
-const SetCate = ( props ) => {
-    const [list, setList] = useState(["React.js", "React.ts", "sad", "asasd", ".Tasdasd"])
+const SetList = ( props ) => {
+    const [list, setList] = useState([])
     const [want, setWant] = useState(props.cate)
     const [slist, setSlist] = useState([""])
-    const [listn, setListn] = useState(["Unity", "Unreal Engine"])
+    const [listn, setListn] = useState([])
     const [wantn, setWantn] = useState(props.caten)
     const [slistn, setSlistn] = useState([""])
     const [skey, setSkey] = useState(0)
     const [sword, setSword] = useState("")
+
+    useEffect(() => {
+            axios.get(`hashtag/list/by-certified/${props.plus}`)
+            .then(function (response) {
+                console.log(response.data)
+                setList(response.data.certifiedList)
+                setListn(response.data.uncertifiedList)
+            })
+    }, [])
 
     const add = ( value ) => {
         if(want.filter((x) => x === value).length === 0 ) {
@@ -62,6 +72,14 @@ const SetCate = ( props ) => {
         if((e.key === "Enter" || e === "Enter") && slist.length === 0 && slistn.length === 0 && skey === 1) {
             const temp = [...listn, sword]
             setListn(temp)
+            axios.post('/hashtag',
+                {
+                    "certified": false,
+                    "groupId": props.plus,
+                    "name": sword,
+                    "writerId": 1
+                }
+            );  
         }
     }
 
@@ -91,10 +109,10 @@ const SetCate = ( props ) => {
                         <img src="sd" className="setcateimg"></img>
                         <hr></hr>
                         <div className="setcatelists">
-                            {skey === 0 && list.map((x) => (<div onClick={(e) => add(e.target.textContent)} className="setcatelist">#{x}</div>))}
-                            {skey === 0 && listn.map((x) => (<div onClick={(e) => addn(e.target.textContent)} className="setcatelistn">#{x}</div>))}
-                            {skey === 1 && slist.map((x) => (<div onClick={(e) => add(e.target.textContent)} className="setcatelist">#{x}</div>))}
-                            {skey === 1 && slistn.map((x) => (<div onClick={(e) => addn(e.target.textContent)} className="setcatelistn">#{x}</div>))}
+                            {skey === 0 && list.map((x) => (<div onClick={() => add(x)} className="setcatelist">#{x}</div>))}
+                            {skey === 0 && listn.map((x) => (<div onClick={() => addn(x)} className="setcatelistn">#{x}</div>))}
+                            {skey === 1 && slist.map((x) => (<div onClick={() => add(x)} className="setcatelist">#{x}</div>))}
+                            {skey === 1 && slistn.map((x) => (<div onClick={() => addn(x)} className="setcatelistn">#{x}</div>))}
                             {(slist.length === 0 && slistn.length === 0) && (
                                 <div>
                                     <div className="setcatecreatetext">'#{sword}' is not exist.</div>
@@ -116,4 +134,4 @@ const SetCate = ( props ) => {
     );
 };
 
-export default SetCate;
+export default SetList;
