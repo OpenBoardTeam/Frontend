@@ -10,11 +10,11 @@ const testObject = {
         Language: [
             "C/C++",
             "C#",
-            "Java",
-            "Javascript",
-            "Kotlin",
-            "Python",
-            "Typescript",
+            "java",
+            "javascript",
+            "kotlin",
+            "python",
+            "typescript",
         ],
         Framework: ["React", "Vue.js", "Spring", "AndroidStudio"],
         Infra: ["Docker", "AWS", "Jenkins", "Kafka"],
@@ -28,6 +28,7 @@ const StyledCategories = styled.div`
     background-color: ${({ theme }) => theme.primaryColor.background.black};
     display: flex;
     padding-top: 40px;
+    padding-bottom: 40px;
 `;
 
 const Title = styled.div`

@@ -8,6 +8,7 @@ const primaryColor = {
     white: "#FFFFFF",
     black: "#141414",
     darkGray: "#23212D",
+    purple: "#bc43be",
 };
 
 /**

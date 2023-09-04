@@ -1,4 +1,5 @@
 import React from "react";
+import theme from "../../style/theme";
 import { styled } from "styled-components";
 
 const StyledGroupContainer = styled.ul`
@@ -29,6 +30,10 @@ const HashTag = styled.a`
     font-weight: 300; //Regular
     margin-left: 12px;
     text-decoration: none;
+    transition: color 0.3s;
+    &:hover {
+        color: ${({ theme }) => theme.primaryColor.purple};
+    }
 `;
 
 const GroupContainer = (props) => {
@@ -40,7 +45,7 @@ const GroupContainer = (props) => {
             <HashTagTitle>{title}</HashTagTitle>
             {tagList.map((e) => (
                 <HashTag href={"search?category=" + e.toLowerCase()}>
-                    {e}
+                    {"#" + e.charAt(0).toUpperCase() + e.substring(1)}
                 </HashTag>
             ))}
         </StyledGroupContainer>
