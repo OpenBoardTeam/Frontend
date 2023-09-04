@@ -3,14 +3,11 @@ import theme from "../style/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import HomeCategories from "../components/Categories/HomeCategories";
 
 const StyledHome = styled.div`
     background-color: ${(props) => props.theme.primaryColor.background.black};
     color: white;
-`;
-
-const Categories = styled.div`
-    width: 100%;
 `;
 
 const TestMain = styled.div`
@@ -28,7 +25,8 @@ const Home = () => {
         <ThemeProvider theme={theme}>
             <Header isLoggedIn={isLoggedIn} />
             <StyledHome>
-                <TestMain></TestMain>
+                <TestMain />
+                <HomeCategories></HomeCategories>
                 <Footer></Footer>
             </StyledHome>
         </ThemeProvider>
