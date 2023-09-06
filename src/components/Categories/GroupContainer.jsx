@@ -1,5 +1,4 @@
 import React from "react";
-import theme from "../../style/theme";
 import { styled } from "styled-components";
 
 const StyledGroupContainer = styled.ul`
