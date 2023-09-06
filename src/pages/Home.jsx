@@ -5,7 +5,6 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import HomeCategories from "../components/Categories/HomeCategories";
 import MainContent from "../components/HomeMainContent/MainContent";
-import TestMainContent from "../components/TestHomeMainContent/TestMainContent";
 
 const StyledHome = styled.div`
     background-color: ${(props) => props.theme.primaryColor.background.black};
@@ -28,8 +27,8 @@ const Home = () => {
             <Header isLoggedIn={isLoggedIn} />
             <StyledHome>
                 <TestMain>
-                    <MainContent />
-                    {/* <TestMainContent></TestMainContent> */}
+                    {/* <MainContent /> */}
+                    <MainContent></MainContent>
                 </TestMain>
                 <HomeCategories></HomeCategories>
                 <Footer></Footer>
