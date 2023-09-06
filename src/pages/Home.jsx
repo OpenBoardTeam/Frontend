@@ -9,6 +9,7 @@ import MainContent from "../components/HomeMainContent/MainContent";
 const StyledHome = styled.div`
     background-color: ${(props) => props.theme.primaryColor.background.black};
     color: white;
+    overflow: auto;
 `;
 
 const TestMain = styled.div`
@@ -28,7 +29,6 @@ const Home = () => {
             <StyledHome>
                 <TestMain>
                     <MainContent />
-                    {/* <TestMainContent></TestMainContent> */}
                 </TestMain>
                 <HomeCategories></HomeCategories>
                 <Footer></Footer>
