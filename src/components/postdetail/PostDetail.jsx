@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom'
 import Header from "./../Header/Header"
 import Footer from "./../Footer/Footer"
 import axios from "axios"
 import "./PostDetail.css"
 
 const PostDetail = () => {
+    const location = useLocation();
+
     const [data, setData] = useState([])
+
     useEffect(() => {
-        axios.get('/projects/26')
+        axios.get(`/projects/${location.state.id}`)
             .then(function (response) {
                 console.log(response.data.data)
                 setData(response.data.data)
             })
     }, [])
+
     return (
         <>
             <div className="postheader">

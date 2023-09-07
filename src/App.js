@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
-import Search from "./pages/Search";
+import Search from "./components/search/Search";
 import PostDetail from "./components/postdetail/PostDetail";
 import NewPost from "./components/newpost/NewPost";
 import LegalDocuments from "./pages/LegalDocuments";

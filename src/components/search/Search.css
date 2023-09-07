@@ -1,0 +1,44 @@
+.searchlist {
+    width: 1014px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid #63A1FF;
+    margin-bottom: 40px;
+}
+
+.searchname {
+    font-size: 14px;
+    color: #63A1FF;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.searchsdes {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.searchhashlists {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.searchhashlist {
+    margin-right: 1vw;
+    height: 19px;
+    width: auto;
+    border-radius: 30px;
+    background-color: rgb(53, 52, 52);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+    gap: 10px;
+}
+
+.searchlist:hover {
+    cursor: pointer;
+}
