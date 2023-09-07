@@ -1,11 +1,13 @@
 import React from "react";
 import "./Profile.css";
+import Header from "./../Header/Header"
+import Footer from "./../Footer/Footer"
 
 const Profile = () => {
     return (
         <>
             <div className="postheader">
-
+                <Header/>
             </div>
             <div className="profilebody">
                 <div className="mybody">
@@ -29,7 +31,7 @@ const Profile = () => {
                 <div className="mywith">withdrawal</div>
             </div>
             <div className="postfooter">
-
+                <Footer/>
             </div>
         </>
     );

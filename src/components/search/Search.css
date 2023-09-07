@@ -1,9 +1,10 @@
 .searchlist {
     width: 1014px;
-    height: 150px;
+    height: auto;
     border-radius: 10px;
     border: 1px solid #63A1FF;
     margin-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .searchname {
@@ -23,6 +24,7 @@
     display: flex;
     margin-left: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .searchhashlist {
@@ -36,6 +38,7 @@
     justify-content: center;
     align-items: center;
     padding: 4px 12px;
+    margin-top: 10px;
     gap: 10px;
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 // import MainSearchBox from "./MainSearchBox";
 import SearchIcon from "../../icons/SearchIcon";
+import { useNavigate } from "react-router-dom";
 
 const StyledMainContent = styled.div`
     display: block;
@@ -54,6 +55,7 @@ const MainSearchBox = styled.input`
 `;
 
 const MainContent = () => {
+    const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
 
     const searchQueryHandler = (event) => {
@@ -72,12 +74,20 @@ const MainContent = () => {
     };
 
     const SearchClickHandler = (e) => {
-        hrefSearchQuery();
+        //hrefSearchQuery();
+        navigate('/search', {
+            state: {
+                id: searchQuery
+            }})
     };
 
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
-            hrefSearchQuery();
+            //hrefSearchQuery();
+            navigate('/search', {
+                state: {
+                    id: searchQuery
+                }})
         }
     };
 
