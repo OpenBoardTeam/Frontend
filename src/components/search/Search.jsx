@@ -5,18 +5,28 @@ import Footer from "./../Footer/Footer"
 import { useState } from "react";
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 const Search = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.get(`/projects/search/keyword/test/page-number/0/size/10`)
+        if(location.state.id === "") {
+            axios.get(`projects/page-number/0/size/5`)
             .then(function (response) {
                 console.log(response.data.data)
                 setData(response.data.data)
             })
+        } else {
+        axios.get(`/projects/search/keyword/${location.state.id}/page-number/0/size/10`)
+            .then(function (response) {
+                console.log(response.data.data)
+                setData(response.data.data)
+            })
+        }
     }, [])
 
     return (

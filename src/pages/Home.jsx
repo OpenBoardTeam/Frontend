@@ -21,11 +21,12 @@ const TestMain = styled.div`
     background-attachment: fixed;
 `;
 
-const Home = () => {
-    const isLoggedIn = true;
+const Home = ( props ) => {
+    //const isLoggedin = false;
+
     return (
         <ThemeProvider theme={theme}>
-            <Header isLoggedIn={isLoggedIn} />
+            <Header isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
             <StyledHome>
                 <TestMain>
                     <MainContent />

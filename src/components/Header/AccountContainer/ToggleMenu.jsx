@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./ToggleMenuAnimation.css";
+import { useNavigate } from "react-router-dom";
 
 const StyledToggleMenu = styled.div`
     background-color: black;
@@ -66,6 +67,8 @@ const StyledHr = styled.hr`
 
 //Test component for Toggle menu
 const ToggleMenu = (props) => {
+    const navigate = useNavigate();
+
     return (
         <StyledToggleMenu
             className={props.isMenuOpen ? "active" : "inactive"}
@@ -73,8 +76,8 @@ const ToggleMenu = (props) => {
         >
             <StyledUnorderedList>
                 <StyledList>
-                    <StyledListItem>My Profile</StyledListItem>
-                    <StyledListItem>Create new post</StyledListItem>
+                    <StyledListItem onClick={() => navigate('/profile')}>My Profile</StyledListItem>
+                    <StyledListItem onClick={() => navigate('/newpost')}>Create new post</StyledListItem>
                 </StyledList>
                 <StyledHr />
                 <StyledList>
@@ -89,7 +92,7 @@ const ToggleMenu = (props) => {
                 <StyledHr />
                 <StyledList>
                     <StyledListItem>Settings</StyledListItem>
-                    <StyledListItem>Log out</StyledListItem>
+                    <StyledListItem onClick={() => props.setIsLoggedIn(false)}>Log out</StyledListItem>
                 </StyledList>
             </StyledUnorderedList>
         </StyledToggleMenu>

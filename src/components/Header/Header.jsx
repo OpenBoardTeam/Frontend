@@ -105,6 +105,7 @@ const Header = (props) => {
                         isMenuOpen={isMenuOpen}
                         menuOpenHandler={openMenu}
                         ref={menuRef}
+                        setIsLoggedIn={props.setIsLoggedIn}
                     />
                 }
             </StyledHeader>
