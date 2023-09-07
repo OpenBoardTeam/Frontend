@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
-import PostDetail from "./pages/PostDetail";
+import PostDetail from "./components/postdetail/PostDetail";
 import NewPost from "./components/newpost/NewPost";
 import LegalDocuments from "./pages/LegalDocuments";
 
