@@ -13,7 +13,7 @@ const SetList = ( props ) => {
     const [sword, setSword] = useState("")
 
     useEffect(() => {
-            axios.get(`hashtag/list/by-certified/${props.plus}`)
+            axios.get(`hashtags/group/${props.plus}`)
             .then(function (response) {
                 console.log(response.data)
                 setList(response.data.certifiedList)
@@ -72,7 +72,7 @@ const SetList = ( props ) => {
         if((e.key === "Enter" || e === "Enter") && slist.length === 0 && slistn.length === 0 && skey === 1) {
             const temp = [...listn, sword]
             setListn(temp)
-            axios.post('/hashtag',
+            axios.post('/hashtags',
                 {
                     "certified": false,
                     "groupId": props.plus,
@@ -92,13 +92,13 @@ const SetList = ( props ) => {
                         <div className="setcatelists">
                             {want.map((x) => (
                                 <div className="setcatewantgroup">
-                                    <div className="setcatewant">{x}</div>
+                                    <div className="setcatewant">#{x}</div>
                                     <div className="setcatedlt" id={x} onClick={(e) => cancel(e.target.id)}>x</div>
                                 </div>
                             ))}
                             {wantn.map((x) => (
                                 <div className="setcatewantgroup">
-                                    <div className="setcatewantn">{x}</div>
+                                    <div className="setcatewantn">#{x}</div>
                                     <div className="setcatedlt" id={x} onClick={(e) => canceln(e.target.id)}>x</div>
                                 </div>
                             ))}

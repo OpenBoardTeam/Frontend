@@ -6,8 +6,10 @@ import SetLink from "./SetLink";
 import axios from "axios";
 import Header from "./../Header/Header"
 import Footer from "./../Footer/Footer"
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Posts = () => {
+    const navigate = useNavigate()
     const [cate, setCate] = useState([])
     const [social, setSocial] = useState([])
     const [lang, setLang] = useState([])
@@ -28,16 +30,17 @@ const Posts = () => {
 
     const submit = () => {
         if(link !== "" && name !== "" && sdes !== "" && des !== "") {
-            axios.post('/project',
+            axios.post('/projects',
                 {
-                    "categories": [...cate, ...caten, ...social, ...socialn, ...lang, ...langn, ...frame, ...framen, ...infra, ...infran],
                     "description": des,
                     "gitUrl": link,
+                    "hashtagList": [...cate, ...caten, ...social, ...socialn, ...lang, ...langn, ...frame, ...framen, ...infra, ...infran],
                     "name": name,
-                    "simple_description": sdes,
+                    "simpleDescription": sdes,
                     "userId": 1
                 }
-            );  
+            );
+            navigate("/")
         }
         else {
             alert('빈칸을 채워주세요')

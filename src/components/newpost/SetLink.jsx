@@ -2,7 +2,7 @@ import React from "react";
 
 const SetLink = ( props ) => {
     const linkup = (e) => {
-        if(e.key === "Enter") {
+        if(e.key === "Enter" && e.target.value !== "") {
             props.setLink(e.target.value)
             props.setLinkkey(1)
         }
