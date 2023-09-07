@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import theme from "../../style/theme";
 
 const StyledNavbar = styled.div`
     display: flex;
